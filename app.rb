@@ -24,16 +24,19 @@ end
 
 # SMS Request URL
 get_or_post '/sms/?' do
-  response = Twilio::TwiML::Response.new do |r|
-    the_text = params[:Body]
+  the_text = params[:Body]
 
-    if (/Funny/ =~ the_text)
-      r.Sms = "You said: #{the_text}, which is funny"
-    else 
-      r.Sms = "You said: #{the_text}, which is not funny"
+  if (/Funny/ =~ the_text)
+    response = Twilio::TwiML::Response.new do |r|
+    r.Sms = "You said: #{the_text}, which is funny"
+    response.text
+    end
+  else 
+    response = Twilio::TwiML::Response.new do |r|
+    r.Sms = "You said: #{the_text}, which is not funny"
+    response.text
     end
   end
-  response.text
 end
 
 # Twilio Client URL
