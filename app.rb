@@ -25,8 +25,8 @@ end
 # SMS Request URL
 get_or_post '/sms/?' do
   response = Twilio::TwiML::Response.new do |r|
-    r.Sms 'Congratulations! You\'ve successfully deployed ' \
-          'the Twilio HackPack for Heroku and Sinatra!'
+    the_text = params[:Body]
+    r.Sms "It's working, you said: #{the_text}."
   end
   response.text
 end
