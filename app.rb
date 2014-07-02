@@ -27,10 +27,11 @@ get_or_post '/sms/?' do
   response = Twilio::TwiML::Response.new do |r|
     the_text = params[:Body]
 
-    r.Sms = case the_text
-      when /Funny/ then "You said: #{the_text}, which is funny"
-      else "You said: #{the_text}, which is not funny"
-      end
+    if (/Funny/ =~ the_text)
+      r.Sms = "You said: #{the_text}, which is funny"
+    else 
+      r.Sms = "You said: #{the_text}, which is not funny"
+    end
   end
   response.text
 end
