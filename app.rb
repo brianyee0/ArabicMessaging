@@ -28,14 +28,14 @@ get_or_post '/sms/?' do
 
   if (/Funny/ =~ the_text)
     response = Twilio::TwiML::Response.new do |r|
-    r.Sms = "You said: #{the_text}, which is funny"
-    response.text
+      r.Sms = "You said: #{the_text}, which is funny"
     end
+    response.text
   else 
     response = Twilio::TwiML::Response.new do |r|
-    r.Sms = "You said: #{the_text}, which is not funny"
-    response.text
+      r.Sms = "You said: #{the_text}, which is not funny"
     end
+    response.text
   end
 end
 
