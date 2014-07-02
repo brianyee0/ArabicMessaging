@@ -30,6 +30,7 @@ get_or_post '/sms/?' do
     r.Sms = case the_text
       when /Funny/ then "You said: #{the_text}, which is funny"
       else "You said: #{the_text}, which is not funny"
+      end
   end
   response.text
 end
