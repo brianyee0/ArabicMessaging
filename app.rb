@@ -26,14 +26,65 @@ end
 get_or_post '/sms/?' do
   the_text = params[:Body]
 
-  if (/Funny/ =~ the_text)
+  case the_text
+  when /understanding/i
     response = Twilio::TwiML::Response.new do |r|
-      r.Sms "You said: #{the_text}, which is funny"
+      r.Sms "Watch the next Prophet’s Stories video at http://prophetstories.org/english/, Mohammed & the Heavenly Books"
+    end
+    response.text
+  when /alter/i
+    response = Twilio::TwiML::Response.new do |r|
+      r.Sms "Watch the next video at http://prophetstories.org/english/, Adam & Hawa & the Robes of Righteousness"
+    end
+    response.text
+  when /shame/i
+    response = Twilio::TwiML::Response.new do |r|
+      r.Sms "Watch the next Prophet’s Stories video at http://prophetstories.org/english/, Nuh & the Boat of Salvation"
+    end
+    response.text
+  when /way/i
+    response = Twilio::TwiML::Response.new do |r|
+      r.Sms "Watch the next Prophet’s Stories video at http://prophetstories.org/english/, Ibrahim & the Sacrifice of Redemption"
+    end
+    response.text
+  when /sacrifice/i
+    response = Twilio::TwiML::Response.new do |r|
+      r.Sms "Watch the next Prophet’s Stories video at http://prophetstories.org/english/, Musa and the Blood of Sacrifice"
+    end
+    response.text
+  when /blood/i
+    response = Twilio::TwiML::Response.new do |r|
+      r.Sms "Watch the next Prophet’s Stories video at http://prophetstories.org/english/, Musa and the Law"
+    end
+    response.text
+  when /cleanse/i
+    response = Twilio::TwiML::Response.new do |r|
+      r.Sms "Watch the next Prophet’s Stories video at http://prophetstories.org/english/, Isa & the Healing of the Blind"
+    end
+    response.text
+  when /follow/i
+    response = Twilio::TwiML::Response.new do |r|
+      r.Sms "Watch the next Prophet’s Stories video at http://prophetstories.org/english/, Yahya & His Testimony of Isa"
+    end
+    response.text
+  when /sign/i
+    response = Twilio::TwiML::Response.new do |r|
+      r.Sms "Watch the next Prophet’s Stories video at http://prophetstories.org/english/, Isa & the Victory over Death"
+    end
+    response.text
+  when /isa/i
+    response = Twilio::TwiML::Response.new do |r|
+      r.Sms "Watch the next Prophet’s Stories video at http://prophetstories.org/english/, Allah’s Way & the Prophet Pointing to Isa"
+    end
+    response.text
+  when /straight path|straightpath/i
+    response = Twilio::TwiML::Response.new do |r|
+      r.Sms "Thank you for watching the Prophet’s Stories.  Would you be interested in a study of the signs of the prophets in the Holy Books?"
     end
     response.text
   else 
     response = Twilio::TwiML::Response.new do |r|
-      r.Sms "You said: #{the_text}, which is not funny"
+      r.Sms "Response not understood.  Please go to http://prophetstories.org to find out more."
     end
     response.text
   end
