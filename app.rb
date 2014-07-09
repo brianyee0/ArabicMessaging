@@ -136,7 +136,7 @@ def notify_bh(the_text)
 
   @client = Twilio::REST::Client.new account_sid, auth_token
 
-  @client.account.messages.create(
+  @client.account.sms.messages.create(
     :from => '+12487315922',
     :to => '+17347883363',
     :body => "Someone texted #{the_text}"
