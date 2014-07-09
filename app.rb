@@ -132,6 +132,8 @@ end
 
 def notify_bh(the_text)
 
+  @client = Twilio::REST::Client.new(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
+
   @client.account.messages.create(
     :from => '+12487315922',
     :to => '+17347883363',
