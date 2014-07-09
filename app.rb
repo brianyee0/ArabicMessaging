@@ -25,6 +25,7 @@ end
 # SMS Request URL
 get_or_post '/sms/?' do
   the_text = params[:Body]
+  the_from_num = params[:From]
 
   case the_text
   when /understanding/i
@@ -39,63 +40,63 @@ get_or_post '/sms/?' do
     response.text
   when /alter/i
     # send note to BH
-    notify_bh(the_text);
+    notify_bh(the_from_num, the_text);
     response = Twilio::TwiML::Response.new do |r|
       r.Sms "As u wait for a response, consider watching the next video at http://prophetstories.org/english/, Adam & Hawa & the Robes of Righteousness"
     end
     response.text
   when /shame/i
     # send note to BH
-    notify_bh(the_text);
+    notify_bh(the_from_num, the_text);
     response = Twilio::TwiML::Response.new do |r|
       r.Sms "As u wait for a response, consider watching the next video at http://prophetstories.org/english/, Nuh & the Boat of Salvation"
     end
     response.text
   when /way/i
     # send note to BH
-    notify_bh(the_text);
+    notify_bh(the_from_num, the_text);
     response = Twilio::TwiML::Response.new do |r|
       r.Sms "As u wait for a response, consider watching the next video at http://prophetstories.org/english/, Ibrahim & the Sacrifice of Redemption"
     end
     response.text
   when /sacrifice/i
     # send note to BH
-    notify_bh(the_text);
+    notify_bh(the_from_num, the_text);
     response = Twilio::TwiML::Response.new do |r|
       r.Sms "As u wait for a response, consider watching the next Prophet’s Stories video at http://prophetstories.org/english/, Musa and the Blood of Sacrifice"
     end
     response.text
   when /blood/i
     # send note to BH
-    notify_bh(the_text);
+    notify_bh(the_from_num, the_text);
     response = Twilio::TwiML::Response.new do |r|
       r.Sms "As u wait for a response, consider watching the next video at http://prophetstories.org/english/, Musa and the Law"
     end
     response.text
   when /cleanse/i
     # send note to BH
-    notify_bh(the_text);
+    notify_bh(the_from_num, the_text);
     response = Twilio::TwiML::Response.new do |r|
       r.Sms "As u wait for a response, consider watching the next video at http://prophetstories.org/english/, Isa & the Healing of the Blind"
     end
     response.text
   when /follow/i
     # send note to BH
-    notify_bh(the_text);
+    notify_bh(the_from_num, the_text);
     response = Twilio::TwiML::Response.new do |r|
       r.Sms "As u wait for a response, consider watching the next video at http://prophetstories.org/english/, Yahya & His Testimony of Isa"
     end
     response.text
   when /sign/i
     # send note to BH
-    notify_bh(the_text);
+    notify_bh(the_from_num, the_text);
     response = Twilio::TwiML::Response.new do |r|
       r.Sms "As u wait for a response, consider watching the next video at http://prophetstories.org/english/, Isa & the Victory over Death"
     end
     response.text
   when /isa/i
     # send note to BH
-    notify_bh(the_text);
+    notify_bh(the_from_num, the_text);
     response = Twilio::TwiML::Response.new do |r|
       r.Sms "As u wait for a response, consider watching the next video at http://prophetstories.org/english/, Allah’s Way & the Prophet Pointing to Isa"
     end
@@ -130,7 +131,7 @@ get_or_post '/client/?' do
   erb :client
 end
 
-def notify_bh(the_text)
+def notify_bh(the_from_num, the_text)
   account_sid = ENV['TWILIO_ACCOUNT_SID'] || TWILIO_ACCOUNT_SID
   auth_token = ENV['TWILIO_AUTH_TOKEN'] || TWILIO_AUTH_TOKEN
 
@@ -139,7 +140,7 @@ def notify_bh(the_text)
   @client.account.sms.messages.create(
     :from => '+12487315922',
     :to => '+17347883363',
-    :body => "Someone texted #{the_text}"
+    :body => "I have received a text: #{the_text} from #{the_from_num}"
   )
 
   # do something
