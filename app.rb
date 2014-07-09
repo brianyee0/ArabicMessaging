@@ -139,7 +139,7 @@ def notify_bh(the_from_num, the_text)
 
   @client.account.sms.messages.create(
     :from => '+12487315922',
-    :to => '+17347883363',
+    :to => '+13134371451',
     :body => "The system has received a text (#{the_text}) from #{the_from_num}"
   )
 
