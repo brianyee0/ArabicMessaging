@@ -30,75 +30,75 @@ get_or_post '/sms/?' do
   case the_text
   when /understanding/i
     response = Twilio::TwiML::Response.new do |r|
-      r.Sms "Watch the next Prophet’s Stories video at http://prophetstories.org/english/, Mohammed & the Heavenly Books"
+      r.Sms "Watch the next Prophet’s Stories video at http://prophetstories.org/michigan/en_02/, Mohammed & the Heavenly Books"
     end
     response.text
   when /prophetadam|prophet adam/i
     response = Twilio::TwiML::Response.new do |r|
-      r.Sms "Watch the next video at http://prophetstories.org/english/, Adam & Hawa & the Robes of Righteousness"
+      r.Sms "Watch the next video at http://prophetstories.org/michigan/en_03/, Adam & Hawa & the Robes of Righteousness"
     end
     response.text
   when /alter/i
     # send note to BH
     notify_bh(the_from_num, the_text);
     response = Twilio::TwiML::Response.new do |r|
-      r.Sms "As u wait for a response, consider watching the next video at http://prophetstories.org/english/, Adam & Hawa & the Robes of Righteousness"
+      r.Sms "As u wait for a response, consider watching the next video at http://prophetstories.org/michigan/en_03/, Adam & Hawa & the Robes of Righteousness"
     end
     response.text
   when /shame/i
     # send note to BH
     notify_bh(the_from_num, the_text);
     response = Twilio::TwiML::Response.new do |r|
-      r.Sms "As u wait for a response, consider watching the next video at http://prophetstories.org/english/, Nuh & the Boat of Salvation"
+      r.Sms "As u wait for a response, consider watching the next video at http://prophetstories.org/michigan/en_04/, Nuh & the Boat of Salvation"
     end
     response.text
   when /way/i
     # send note to BH
     notify_bh(the_from_num, the_text);
     response = Twilio::TwiML::Response.new do |r|
-      r.Sms "As u wait for a response, consider watching the next video at http://prophetstories.org/english/, Ibrahim & the Sacrifice of Redemption"
+      r.Sms "As u wait for a response, consider watching the next video at http://prophetstories.org/michigan/en_05/, Ibrahim & the Sacrifice of Redemption"
     end
     response.text
   when /sacrifice/i
     # send note to BH
     notify_bh(the_from_num, the_text);
     response = Twilio::TwiML::Response.new do |r|
-      r.Sms "As u wait for a response, consider watching the next Prophet’s Stories video at http://prophetstories.org/english/, Musa and the Blood of Sacrifice"
+      r.Sms "As u wait for a response, consider watching the next Prophet’s Stories video at http://prophetstories.org/michigan/en_06/, Musa and the Blood of Sacrifice"
     end
     response.text
   when /blood/i
     # send note to BH
     notify_bh(the_from_num, the_text);
     response = Twilio::TwiML::Response.new do |r|
-      r.Sms "As u wait for a response, consider watching the next video at http://prophetstories.org/english/, Musa and the Law"
+      r.Sms "As u wait for a response, consider watching the next video at http://prophetstories.org/michigan/en_07/, Musa and the Law"
     end
     response.text
   when /cleanse/i
     # send note to BH
     notify_bh(the_from_num, the_text);
     response = Twilio::TwiML::Response.new do |r|
-      r.Sms "As u wait for a response, consider watching the next video at http://prophetstories.org/english/, Isa & the Healing of the Blind"
+      r.Sms "As u wait for a response, consider watching the next video at http://prophetstories.org/michigan/en_08/, Isa & the Healing of the Blind"
     end
     response.text
   when /follow/i
     # send note to BH
     notify_bh(the_from_num, the_text);
     response = Twilio::TwiML::Response.new do |r|
-      r.Sms "As u wait for a response, consider watching the next video at http://prophetstories.org/english/, Yahya & His Testimony of Isa"
+      r.Sms "As u wait for a response, consider watching the next video at http://prophetstories.org/michigan/en_09/, Yahya & His Testimony of Isa"
     end
     response.text
   when /sign/i
     # send note to BH
     notify_bh(the_from_num, the_text);
     response = Twilio::TwiML::Response.new do |r|
-      r.Sms "As u wait for a response, consider watching the next video at http://prophetstories.org/english/, Isa & the Victory over Death"
+      r.Sms "As u wait for a response, consider watching the next video at http://prophetstories.org/michigan/en_10/, Isa & the Victory over Death"
     end
     response.text
   when /isa/i
     # send note to BH
     notify_bh(the_from_num, the_text);
     response = Twilio::TwiML::Response.new do |r|
-      r.Sms "As u wait for a response, consider watching the next video at http://prophetstories.org/english/, Allah’s Way & the Prophet Pointing to Isa"
+      r.Sms "As u wait for a response, consider watching the next video at http://prophetstories.org/michigan/en_11/, Allah’s Way & the Prophet Pointing to Isa"
     end
     response.text
   when /straight path|straightpath/i
@@ -108,7 +108,7 @@ get_or_post '/sms/?' do
     response.text
   when /yes/i
     response = Twilio::TwiML::Response.new do |r|
-      r.Sms "Thanks for watching the prophet stories videos. As you have indicated your interest in further study of the Holy Books. You will be contacted shortly"
+      r.Sms "Thanks for watching the prophet stories videos. As you have indicated your interest in further study of the Holy Books, you will be contacted shortly"
     end
     response.text
   when /no/i
