@@ -30,7 +30,7 @@ get_or_post '/sms/?' do
   case the_text
   when /understanding/i
     response = Twilio::TwiML::Response.new do |r|
-      r.Sms "Watch the next Prophet’s Stories video at http://prophetstories.org/michigan/en_02/, Mohammed & the Heavenly Books"
+      r.Sms "Welcome to the Prophet Stories. Watch new vids daily. Watch 1st vid @ http://bit.ly/1nrVVfR. Txt 3134371451 for help.Txt STOP to stop.Msg&Data rates may apply."
     end
     response.text
   when /prophetadam|prophet adam/i
@@ -118,7 +118,7 @@ get_or_post '/sms/?' do
     response.text
   else 
     response = Twilio::TwiML::Response.new do |r|
-      r.Sms "Response not understood.  Please go to http://prophetstories.org to find out more."
+      r.Sms "Response not understood. Please go to http://prophetstories.org/michigan/en_01/ or text 3134371451 & explain what you need help with."
     end
     response.text
   end
