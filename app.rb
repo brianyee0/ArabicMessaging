@@ -103,7 +103,7 @@ get_or_post '/sms/?' do
     response.text
   when /straight path|straightpath/i
     response = Twilio::TwiML::Response.new do |r|
-      r.Sms "Thank you for watching the Prophet's Stories. Would you be interested in a study of the signs of the prophets in the Holy Books? Please reply YES or NO"
+      r.Sms "Thanks 4 watching the Prophet's Stories. As u wait for a response, would u be interested in a study of the signs of the prophets? Reply YES or NO"
     end
     response.text
   when /yes/i
