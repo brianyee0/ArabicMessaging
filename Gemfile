@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
 gem 'sinatra'
 gem 'thin'
-gem 'twilio-ruby'
+gem 'twilio-ruby', '~>3.11'
 gem 'trollop'
