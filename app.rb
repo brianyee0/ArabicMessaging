@@ -40,7 +40,7 @@ get_or_post '/sms/?' do
     response.text
   when /تغير/i
     # send note to BH
-    notify_bh(the_from_num, the_text);
+    #notify_bh(the_from_num, the_text);
     response = Twilio::TwiML::Response.new do |r|
 #      r.Sms "(AR) As u wait for a response, consider watching the next video at http://prophetstories.org/michigan/en_03/, Adam & Hawa & the Robes of Righteousness"
       r.Sms "كما كنت انتظر ردا"
@@ -48,10 +48,10 @@ get_or_post '/sms/?' do
     response.text
   when /تحريف/i
     # send note to BH
-    notify_bh(the_from_num, the_text);
+    #notify_bh(the_from_num, the_text);
     response = Twilio::TwiML::Response.new do |r|
 #      r.Sms "(AR) Test Response"
-      r.Sms "وبينما تنتظر الرد نرجو منك أن تشاهد المقطع التالي آدم و حواء و رداء التقوى على الرابط"
+      r.Sms "وبينما :تنتظر الرد نرجو منك أن تشاهد المقطع التالي آدم و حواء و رداء التقوى على الرابط"
     end
     response.text
   when /shame/i
