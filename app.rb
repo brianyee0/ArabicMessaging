@@ -42,7 +42,8 @@ get_or_post '/sms/?' do
     # send note to BH
     notify_bh(the_from_num, the_text);
     response = Twilio::TwiML::Response.new do |r|
-      r.Sms "(AR) As u wait for a response, consider watching the next video at http://prophetstories.org/michigan/en_03/, Adam & Hawa & the Robes of Righteousness"
+#      r.Sms "(AR) As u wait for a response, consider watching the next video at http://prophetstories.org/michigan/en_03/, Adam & Hawa & the Robes of Righteousness"
+      r.Sms "يو تنتظر ردا، والنظر في مشاهدة الفيديو التالي في http://prophetstories.org/michigan/ar_03/، وآدم"
     end
     response.text
   when /shame/i
@@ -150,7 +151,7 @@ def notify_bh(the_from_num, the_text)
   @client.account.sms.messages.create(
     :from => '+12487315922',
     :to => '+13134371451',
-    :body => "(AR) The system has received a text (#{the_text}) from #{the_from_num}"
+    :body => "The system has received an arabic text (#{the_text}) from #{the_from_num}"
   )
 
   # do something
