@@ -38,12 +38,20 @@ get_or_post '/sms/?' do
       r.Sms "(AR) Watch the next video at http://prophetstories.org/michigan/en_03/, Adam & Hawa & the Robes of Righteousness"
     end
     response.text
-  when /alter/i
+  when /تغير/i
     # send note to BH
     notify_bh(the_from_num, the_text);
     response = Twilio::TwiML::Response.new do |r|
 #      r.Sms "(AR) As u wait for a response, consider watching the next video at http://prophetstories.org/michigan/en_03/, Adam & Hawa & the Robes of Righteousness"
-      r.Sms "يو تنتظر ردا، والنظر في مشاهدة الفيديو التالي في http://prophetstories.org/michigan/ar_03/، وآدم"
+      r.Sms "كما كنت انتظر ردا"
+    end
+    response.text
+  when /تحريف/i
+    # send note to BH
+    notify_bh(the_from_num, the_text);
+    response = Twilio::TwiML::Response.new do |r|
+      r.Sms "(AR) Test Response"
+#      r.Sms "كما كنت انتظر ردا"
     end
     response.text
   when /shame/i
