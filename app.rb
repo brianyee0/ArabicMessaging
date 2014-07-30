@@ -51,7 +51,7 @@ get_or_post '/sms/?' do
     #notify_bh(the_from_num, the_text);
     response = Twilio::TwiML::Response.new do |r|
 #      r.Sms "(AR) Test Response"
-      r.Sms "وبينما :تنتظر الرد نرجو منك أن تشاهد المقطع التالي آدم و حواء و رداء التقوى على الرابط"
+      r.Sms "وبينما تنتظر الرد نرجو منك أن تشاهد المقطع التالي آدم و حواء و رداء التقوى عل:ى الرابط"
     end
     response.text
   when /shame/i
